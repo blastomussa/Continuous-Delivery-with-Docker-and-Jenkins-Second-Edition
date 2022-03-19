@@ -33,4 +33,21 @@ public class StepDefinitions {
     public void i_receive_as_a_result(String expectedResult) throws Throwable {
         assertEquals(expectedResult, result);
     }
+    
+    @Given("^I have dividend and divisor: (.*) and (.*)$")
+    public void i_have_dividend_divisor(String a, String b) throws Throwable {
+        this.a = a;
+        this.b = b;
+    }
+
+    @When("^the calculator divides them$")
+    public void the_calculator_divides_them() throws Throwable {
+        String url = String.format("%s/div?a=%s&b=%s", server, a, b);
+        result = restTemplate.getForObject(url, String.class);
+    }
+
+    @Then("^I receive (.*) as a quotient$")
+    public void i_receive_as_a_quotient(String expectedResult) throws Throwable {
+        assertEquals(expectedResult, result);
+    }
 }
