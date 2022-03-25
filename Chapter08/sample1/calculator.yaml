@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: calculator
-        image: dlambrig/week8:1.1
+        image: dlambrig/hello-kaniko:0.5 
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
