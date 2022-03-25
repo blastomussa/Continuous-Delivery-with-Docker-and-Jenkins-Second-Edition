@@ -33,8 +33,8 @@ podTemplate(yaml: '''
         stage('Apply Changes') {
           sh '''
           cd Chapter08/sample1
-          kubectl apply -f calculator.yaml
-          kubectl apply -f hazelcast.yaml
+          kubectl apply -f calculator.yaml -n default
+          kubectl apply -f hazelcast.yaml -n default
           '''
         }  
       }
